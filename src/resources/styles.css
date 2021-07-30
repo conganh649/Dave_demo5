@@ -1,0 +1,39 @@
+body {
+  text-align: center;
+  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+h2 {
+  color: #eafa0a;
+  font-weight: 800;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+td {
+  border: 1px solid #333;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: large;
+}
+
+thead {
+  background-color: #333;
+  color: #fff;
+  height: 50px;
+}
+
+table td:hover {
+  background: #a18cd1;
+}
