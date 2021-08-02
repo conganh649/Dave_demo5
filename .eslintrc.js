@@ -1,3 +1,4 @@
+// prettier-ignore
 module.exports = {
   env: {
     browser: true,
@@ -12,17 +13,26 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
+
+  // prettier-ignore
   rules: {
-    indent: [
+    "indent": [
       2,
       2,
       {
-        SwitchCase: 1,
-      },
-    ],
-    eqeqeq: [2, "smart"],
-    "one-var-declaration-per-line": [2, "always"],
-    semi: [2, "always"],
-    "no-case-declarations": 0,
+          "SwitchCase": 1
+      }
+  ],
+  "quotes": ["error", "double"],
+  "semi": [2, "always"],
+  "space-before-function-paren": [2, "never"],
+  "comma-dangle": [2, "always-multiline"],
+  "no-unused-vars": [
+    "error",
+    {
+        "varsIgnorePattern": "^[A-Z]"
+    }
+  ],
+  "multiline-ternary": [ "warn", "never" ],
   },
 };
