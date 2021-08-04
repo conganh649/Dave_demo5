@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./resources/styles.css";
+
 import HomePage from "./components/homepage/HomePage";
 import FilmDetail from "./components/detail/FilmDetail";
 
