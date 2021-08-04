@@ -58,7 +58,13 @@ const TodoList = () => {
 
   return (
     <div>
-      {console.log(movies)}
+      {form ? (
+        <UpdateForm
+          passMovie={passMovie}
+          handleClose={handleClose}
+          handelUpdateMovie={handelUpdateMovie}
+        />
+      ) : null}
       <table cellSpacing="0">
         <thead>
           <tr>
@@ -97,13 +103,6 @@ const TodoList = () => {
                   >
                     Update
                   </Button>
-                  {form ? (
-                    <UpdateForm
-                      passMovie={passMovie}
-                      handleClose={handleClose}
-                      handelUpdateMovie={handelUpdateMovie}
-                    />
-                  ) : null}
                 </td>
               </tr>
             </tbody>

@@ -1,30 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Button } from "semantic-ui-react";
 
 const UpdateForm = (props) => {
   const [movieId] = useState(props.passMovie.id);
   const [movieName, setMovieName] = useState(props.passMovie.title);
+  const [overview, setOverview] = useState(props.passMovie.overview);
+  const [movie, setMovie] = useState(props.passMovie);
 
   function updateValue(event) {
     setMovieName(event.target.value);
   }
 
+  useEffect(() => {
+    setMovie((prevState) => ({
+      ...prevState,
+      title: movieName,
+    }));
+  }, [movieName]);
+
+  useEffect(() => {
+    setMovie((prevState) => ({
+      ...prevState,
+      overview: overview,
+    }));
+  }, [overview]);
+
+  function updateValue1(event) {
+    setOverview(event.target.value);
+  }
+
   const handelUpdate = (event) => {
     event.preventDefault();
-    const movieToUpdate = {
-      id: movieId,
-      title: movieName,
-    };
-    props.handelUpdateMovie(movieToUpdate);
+    props.handelUpdateMovie(movie);
   };
 
   return (
     <div>
       <div className="popup-box">
         <div className="box">
+          <h1 onClick={handelUpdate}>Click to Update</h1>
           <form>
-            <h1>EDIT FORM</h1>
             <span className="close-icon" onClick={props.handleClose}>
               x
             </span>
@@ -32,11 +48,11 @@ const UpdateForm = (props) => {
               <label>ID</label>
               <input
                 type="text"
-                placeholder="ID"
+                name="ID"
+                placeholder="Movie ID"
                 value={movieId}
-                onChange={updateValue}
                 readOnly
-              ></input>
+              />
             </div>
             <div className="form-group">
               <label>Name</label>
@@ -48,9 +64,16 @@ const UpdateForm = (props) => {
                 onChange={updateValue}
               />
             </div>
-            <Button className="btn1" onClick={handelUpdate}>
-              Edit movie
-            </Button>
+            <div className="form-group">
+              <label>Overview</label>
+              <textarea
+                placeholder="Movie "
+                value={overview}
+                onChange={updateValue1}
+                cols="60"
+                rows="7"
+              />
+            </div>
           </form>
         </div>
       </div>
