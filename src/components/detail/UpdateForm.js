@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Button } from "semantic-ui-react";
 
 const UpdateForm = (props) => {
   const [movieId] = useState(props.passMovie.id);
